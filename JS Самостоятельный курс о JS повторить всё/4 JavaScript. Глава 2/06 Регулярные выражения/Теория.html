@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Регулярные выражения</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta charset="utf-8">
+<style>body{font-family:Helvetica,arial,sans-serif;font-size:14px;line-height:1.6;background-color:#fff;padding:30px;color:#333;max-width:1140px;margin:0 auto}body > :first-child{margin-top:0!important}body > :last-child{margin-bottom:0!important}a{color:#4183C4;text-decoration:none}a.absent{color:#c00}a.anchor{display:block;padding-left:30px;margin-left:-30px;cursor:pointer;position:absolute;top:0;left:0;bottom:0}h1,h2,h3,h4,h5,h6{margin:20px 0 10px;padding:0;font-weight:700;-webkit-font-smoothing:antialiased;cursor:text;position:relative}h2:first-child,h1:first-child,h1:first-child + h2,h3:first-child,h4:first-child,h5:first-child,h6:first-child{margin-top:0;padding-top:0}h1:hover a.anchor,h2:hover a.anchor,h3:hover a.anchor,h4:hover a.anchor,h5:hover a.anchor,h6:hover a.anchor{text-decoration:none}h1 tt,h1 code{font-size:inherit}h2 tt,h2 code{font-size:inherit}h3 tt,h3 code{font-size:inherit}h4 tt,h4 code{font-size:inherit}h5 tt,h5 code{font-size:inherit}h6 tt,h6 code{font-size:inherit}h1{font-size:28px;color:#000}h2{font-size:24px;border-bottom:1px solid #ccc;color:#000}h3{font-size:18px}h4{font-size:16px}h5{font-size:14px}h6{color:#777;font-size:14px}p,blockquote,ul,ol,dl,li,table,pre{margin:15px 0}hr {padding:0;margin-bottom:-8px;height:1px;border:none;background:black}body > h2:first-child{margin-top:0;padding-top:0}body > h1:first-child{margin-top:0;padding-top:0}body > h1:first-child + h2{margin-top:0;padding-top:0}body > h3:first-child,body > h4:first-child,body > h5:first-child,body > h6:first-child{margin-top:0;padding-top:0}a:first-child h1,a:first-child h2,a:first-child h3,a:first-child h4,a:first-child h5,a:first-child h6{margin-top:0;padding-top:0}h1 p,h2 p,h3 p,h4 p,h5 p,h6 p{margin-top:0}li p.first{display:inline-block}ul,ol{padding-left:30px}ul :first-child,ol :first-child{margin-top:0}ul :last-child,ol :last-child{margin-bottom:0}dl{padding:0}dl dt{font-size:14px;font-weight:700;font-style:italic;padding:0;margin:15px 0 5px}dl dt:first-child{padding:0}dl dt > :first-child{margin-top:0}dl dt > :last-child{margin-bottom:0}dl dd{margin:0 0 15px;padding:0 15px}dl dd > :first-child{margin-top:0}dl dd > :last-child{margin-bottom:0}blockquote{border-left:4px solid #ddd;padding:0 15px;color:#777}blockquote > :first-child{margin-top:0}blockquote > :last-child{margin-bottom:0}table{padding:0}table tr{border-top:1px solid #ccc;background-color:#fff;margin:0;padding:0}table tr:nth-child(2n){background-color:#f8f8f8}table tr th{font-weight:700;border:1px solid #ccc;text-align:left;margin:0;padding:6px 13px}table tr td{border:1px solid #ccc;text-align:left;margin:0;padding:6px 13px}table tr th :first-child,table tr td :first-child{margin-top:0}table tr th :last-child,table tr td :last-child{margin-bottom:0}img{max-width:100%}span.frame{display:block;overflow:hidden}span.frame > span{border:1px solid #ddd;display:block;float:left;overflow:hidden;margin:13px 0 0;padding:7px;width:auto}span.frame span img{display:block;float:left}span.frame span span{clear:both;color:#333;display:block;padding:5px 0 0}span.align-center{display:block;overflow:hidden;clear:both}span.align-center > span{display:block;overflow:hidden;margin:13px auto 0;text-align:center}span.align-center span img{margin:0 auto;text-align:center}span.align-right{display:block;overflow:hidden;clear:both}span.align-right > span{display:block;overflow:hidden;margin:13px 0 0;text-align:right}span.align-right span img{margin:0;text-align:right}span.float-left{display:block;margin-right:13px;overflow:hidden;float:left}span.float-left span{margin:13px 0 0}span.float-right{display:block;margin-left:13px;overflow:hidden;float:right}span.float-right > span{display:block;overflow:hidden;margin:13px auto 0;text-align:right}code,tt{margin:0 2px;padding:0 5px;white-space:nowrap;border:1px solid #eaeaea;background-color:#f8f8f8;border-radius:3px}pre code{margin:0;padding:0;white-space:pre;border:none;background:transparent}.highlight pre{background-color:#f8f8f8;border:1px solid #ccc;font-size:13px;line-height:19px;overflow:auto;padding:6px 10px;border-radius:3px}pre{background-color:#f8f8f8;border:1px solid #ccc;font-size:13px;line-height:19px;overflow:auto;padding:6px 10px;border-radius:3px}pre code,pre tt{background-color:transparent;border:none}.slasher{color:#000000}</style></head>
+<body>
+
+<h1>Регулярные выражения</h1>
+
+<p>Сложно представить валидацию, обработку и анализ данных без регулярных выражений. Они также играют важную роль в поиске и вычленении нужной информации.</p>
+
+<p>Например, есть вот такой текст:</p>
+
+<blockquote>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit <a href="https://praktikum.yandex.ru/"><code>https://praktikum.yandex.ru</code></a>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat <a href="https://yandex.ru/"><code>https://eda.yandex.ru/</code></a>. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</blockquote>
+
+<p>Нужно получить только ссылки, остальной текст неинтересен. Как реализовать подобный алгоритм?</p>
+
+<ol>
+<li>Считывать в цикле каждое слово и проверять по ключевым параметрам строки ссылка это или нет.</li>
+<li>Использовать регулярные выражения.</li>
+</ol>
+
+<h2>Сигнатура</h2>
+
+<p>Регулярные выражения реализованы в JavaScript отдельным объектом <code>RegExp</code> и встроены в методы строк.</p>
+
+<p>Синтаксис регулярных выражений:</p>
+
+<pre><code class="language-JavaScript">const regexp = new RegExp(pattern, flags);
+
+const regexp = /pattern/; // без флагов
+const regexp = /pattern/gi; // с флагами
+</code></pre>
+
+<p>Флаги настраивают поведение регулярных выражений:</p>
+
+<ul>
+<li><code>i</code> — игнорирование регистра при сравнении (регистронезависимость),</li>
+<li><code>g</code> — глобальный поиск. Когда в тексте есть несколько подходящих вариантов, но без флага <code>g</code> регулярное выражение вернёт только первое вхождение,</li>
+<li><code>m</code> — многострочный режим.</li>
+</ul>
+
+<p>Чаще всего применяют флаги  <code>g</code> и <code>i</code>.</p>
+
+<h2>Методы строк</h2>
+
+<p>В некоторые методы строк встроена работа с регулярными выражениями:</p>
+
+<pre><code class="language-JavaScript">message.text = 'Node.js, и модули, Джеймс о проблемах Node.js\n#nodejs #modules';
+
+// Проверяем, содержится ли регулярное выражение в строке
+message.text.search(/js/); // 5
+message.text.search(/abc/); // -1
+
+// Находит первое совпадение в строке
+const result = message.text.match(/js/);
+result[0]; // js
+result.index; // 5
+result.input; // 'Node.js, и модули...' (вся поисковая строка)
+
+message.text.match(/abc/); // null
+</code></pre>
+
+<p>Замена строк работает не только по аргументам <code>replace(string, string)</code>, но и по сигнатуре <code>replace(regexp, string)</code> или <code>replace(string | regexp, string | replacer)</code>.</p>
+
+<pre><code class="language-JavaScript">message.text.replace(/node/gi, 'NODE');
+// 'NODE.js, и модули, Джеймс о проблемах NODE.js\n#NODEjs #modules'
+
+function replacer(match, offset, str) {
+ return match + offset;
+};
+message.text.replace(/node/gi, replacer);
+// 'Node0.js, и модули, Джеймс о проблемах Node38.js #node47js #modules'
+</code></pre>
+
+<h2>Наборы символов</h2>
+
+<p>В регулярных выражениях можно использовать наборы символов:</p>
+
+<pre><code class="language-JavaScript">message.text.match(/#[a-z]+/g); // [ '#nodejs', '#modules' ]
+</code></pre>
+
+<ul>
+<li><code>\d</code> — <code>[0-9]</code>,</li>
+<li><code>\s</code> — <code>[\t\n\v\f\r ]</code>,</li>
+<li><code>\w</code> — <code>[a-zA-Z0-9_]</code>,</li>
+<li><code>^</code> — все, кроме перечисленных,</li>
+<li><code>|</code> — логическое «или»: <code>X|Y</code> соответствует и X, и Y.</li>
+</ul>
+
+<pre><code class="language-JavaScript">message.text.match(/[#\w]+/g);
+// [ 'Node', 'js', 'Node', 'js', '#nodejs', '#modules' ]
+
+message.text.match(/[^\s]+/g);
+// [ 'Node.js,', 'и', 'модули,',
+// 'Джеймс', 'о', 'проблемах',
+// 'Node.js', '#nodejs', '#modules' ]
+
+///////////////////////////
+
+message.text;
+// 'N0de.js, и модули, Джеймс о проблемах Node.js #nodejs #modules'
+message.text.match(/N0de|Node/);
+// [ 'N0de',
+// index: 0,
+// input: 'N0de.js, и модули, Джеймс о проблемах Node.js #nodejs #modules' ]
+// Или чуть короче
+message.text.match(/N(0|o)de/);
+</code></pre>
+
+<p>У регулярных выражений есть метод <code>test</code> для проверки корректности вхождения:</p>
+
+<pre><code class="language-JavaScript">message.text;
+// 'Node.js, и модули, Джеймс о проблемах Node.js #nodejs #modules'
+
+/nodejs/.test(message.text); // true
+/panda/.test(message.text); // false
+
+const regexp = /nodejs/g;
+regexp.test(message.text); // true
+regexp.test(message.text); // false
+</code></pre>
+
+<p>Символ <code>^</code> проверяет вхождение в начало строки. Символ <code>$</code>  — вхождение в конец строки:</p>
+
+<pre><code class="language-JavaScript">message.text;
+// 'Node.js, и модули, Джеймс о проблемах Node.js #nodejs #modules'
+
+/^Node/.test(message.text); // true
+/^Hello/.test(message.text); // false
+
+/modules$/.test(message.text); // true
+/nodejs$/.test(message.text); // false
+</code></pre>
+
+<h2>Квантификаторы</h2>
+
+<p>Начнём с простого примера. Необходимо получить из строки четыре идущие подряд цифры. Для указания количества повторений используется специальный синтаксис, который называют «квантификатором»:</p>
+
+<pre><code class="language-JavaScript">// Синтаксис {4} выдаст все числа длиной строго 4 символа
+console.log('Сегодня 2020 год'.match(/\d{4}/)); // 2020
+
+// Синтаксис {3,4} выдаст все числа длиной 3 или 4
+console.log('Сегодня, в 2020 году, мне исполняется 23'.match(/\d{3,4}/)); // 2020
+
+// Синтаксис {3,} выдаст все числа длиной 3 или более
+console.log('Сегодня, в 2020 году, мне исполняется 23'.match(/\d{3,}/)); // 2020
+</code></pre>
+
+<p>Возьмём номер телефона «+7 (999) 123-45-67» и вычленим все числа. В данном случае нас не интересуют числа по отдельности, а именно последовательность чисел <code>7, 999, 123, 45, 67</code>:</p>
+
+<pre><code class="language-JavaScript">const numbers = '+7 (999)-123-45-67'.match(/\d{1,}/g);
+
+console.log(numbers); // 7,999,123,45,67
+</code></pre>
+
+<p>Можно использовать сокращения:</p>
+
+<ul>
+<li><code>+</code> — один или более символов (аналог записи <code>{1,}</code>),</li>
+<li><code>?</code> — ноль или один символ (аналог записи <code>{0,1}</code>, делает символ необязательным),</li>
+<li><code>*</code> — ноль или более символов (аналог записи <code>{0,}</code>, символ может повторяться много раз или не существовать).</li>
+</ul>
+
+<p>Подходит вариант с <code>+</code>:</p>
+
+<pre><code class="language-JavaScript">const numbers = '+7 (999)-123-45-67'.match(/\d+/g);
+
+console.log(numbers); // 7,999,123,45,67
+</code></pre>
+
+<p>Пример на необязательный символ:</p>
+
+<pre><code class="language-JavaScript">const str = 'Следует писать color или colour?';
+
+console.log(str.match(/colou?r/g)); // color, colour
+</code></pre>
+
+<h2>Скобочные группы</h2>
+
+<p>В регулярных выражениях паттерны можно оборачивать в скобки вида <code>()</code> и на выходе получать конкретные значения. Свойства скобочных групп:</p>
+
+<ul>
+<li>позволяет выделить совпадения в отдельный массив,</li>
+<li>квантификатор после скобочной группы применяется ко всему содержимому скобки, а не отдельному символу.</li>
+</ul>
+
+<pre><code class="language-JavaScript">message.text;
+// 'Node.js, и модули, Джеймс о проблемах Node.js #nodejs #modules'
+
+message.text.match(/\s[#\w]+/g);
+// [' Node', ' #nodejs', ' #modules']
+message.text.match(/(\s[#\w]+)(\s[#\w]+)/g);
+// [' #nodejs #modules']
+// Квантификатор применится ко всей скобке
+message.text.match(/(\s[#\w]+)+/g);
+// [' Node', ' #nodejs #modules']
+
+message.text.match(/\s[#\w]+/);
+// [ ' Node',
+// index: 37,
+// input: 'Node.js, и модули, Джеймс о проблемах Node.js #nodejs #modules' ]
+// Выделяем часть совпадения в отдельный элемент массива
+message.text.match(/\s([#\w]+)/);
+// [ ' Node',
+// 'Node',
+// index: 37,
+// input: 'Node.js, и модули, Джеймс о проблемах Node.js #nodejs #modules' ]
+</code></pre>
+
+<p>В следующих уроках этот инструмент поможет написать свой шаблонизатор быстрее и с меньшим числом кода.</p>
+
+<p>Больше о регулярных выражениях вы прочитаете в <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/Regular_Expressions">документации на MDN</a>. Ещё несколько ссылок в конце темы помогут попрактиковаться.</p>
+
+<h2>Проверьте себя</h2>
+
+<p>Существуют специальные сервисы для проверки регулярных выражений:</p>
+
+<ul>
+<li><a href="https://regex101.com/">Regex101</a> — поможет быстро написать регулярное выражение и сразу же проверить его. Преимущества: можно писать регулярные выражения под разные языки программирования (например, JS или Python). Сервис также умеет «парсить» ваше регулярное выражение и показывать, что именно оно делает по блокам.</li>
+<li><a href="https://phpstorm.tips/tips/38-testing-regular-expressions/">Testing Regular Expressions</a> — в редакторах кода и в IDE (например, WebStorm или PHPStorm) можно проверять регулярки, как говорится, «не отходя от кассы».</li>
+</ul>
+
+</body>
+</html>

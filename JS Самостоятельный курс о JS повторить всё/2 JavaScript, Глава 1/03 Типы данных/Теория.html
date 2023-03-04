@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Типы данных</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta charset="utf-8">
+<style>body{font-family:Helvetica,arial,sans-serif;font-size:14px;line-height:1.6;background-color:#fff;padding:30px;color:#333;max-width:1140px;margin:0 auto}body > :first-child{margin-top:0!important}body > :last-child{margin-bottom:0!important}a{color:#4183C4;text-decoration:none}a.absent{color:#c00}a.anchor{display:block;padding-left:30px;margin-left:-30px;cursor:pointer;position:absolute;top:0;left:0;bottom:0}h1,h2,h3,h4,h5,h6{margin:20px 0 10px;padding:0;font-weight:700;-webkit-font-smoothing:antialiased;cursor:text;position:relative}h2:first-child,h1:first-child,h1:first-child + h2,h3:first-child,h4:first-child,h5:first-child,h6:first-child{margin-top:0;padding-top:0}h1:hover a.anchor,h2:hover a.anchor,h3:hover a.anchor,h4:hover a.anchor,h5:hover a.anchor,h6:hover a.anchor{text-decoration:none}h1 tt,h1 code{font-size:inherit}h2 tt,h2 code{font-size:inherit}h3 tt,h3 code{font-size:inherit}h4 tt,h4 code{font-size:inherit}h5 tt,h5 code{font-size:inherit}h6 tt,h6 code{font-size:inherit}h1{font-size:28px;color:#000}h2{font-size:24px;border-bottom:1px solid #ccc;color:#000}h3{font-size:18px}h4{font-size:16px}h5{font-size:14px}h6{color:#777;font-size:14px}p,blockquote,ul,ol,dl,li,table,pre{margin:15px 0}hr {padding:0;margin-bottom:-8px;height:1px;border:none;background:black}body > h2:first-child{margin-top:0;padding-top:0}body > h1:first-child{margin-top:0;padding-top:0}body > h1:first-child + h2{margin-top:0;padding-top:0}body > h3:first-child,body > h4:first-child,body > h5:first-child,body > h6:first-child{margin-top:0;padding-top:0}a:first-child h1,a:first-child h2,a:first-child h3,a:first-child h4,a:first-child h5,a:first-child h6{margin-top:0;padding-top:0}h1 p,h2 p,h3 p,h4 p,h5 p,h6 p{margin-top:0}li p.first{display:inline-block}ul,ol{padding-left:30px}ul :first-child,ol :first-child{margin-top:0}ul :last-child,ol :last-child{margin-bottom:0}dl{padding:0}dl dt{font-size:14px;font-weight:700;font-style:italic;padding:0;margin:15px 0 5px}dl dt:first-child{padding:0}dl dt > :first-child{margin-top:0}dl dt > :last-child{margin-bottom:0}dl dd{margin:0 0 15px;padding:0 15px}dl dd > :first-child{margin-top:0}dl dd > :last-child{margin-bottom:0}blockquote{border-left:4px solid #ddd;padding:0 15px;color:#777}blockquote > :first-child{margin-top:0}blockquote > :last-child{margin-bottom:0}table{padding:0}table tr{border-top:1px solid #ccc;background-color:#fff;margin:0;padding:0}table tr:nth-child(2n){background-color:#f8f8f8}table tr th{font-weight:700;border:1px solid #ccc;text-align:left;margin:0;padding:6px 13px}table tr td{border:1px solid #ccc;text-align:left;margin:0;padding:6px 13px}table tr th :first-child,table tr td :first-child{margin-top:0}table tr th :last-child,table tr td :last-child{margin-bottom:0}img{max-width:100%}span.frame{display:block;overflow:hidden}span.frame > span{border:1px solid #ddd;display:block;float:left;overflow:hidden;margin:13px 0 0;padding:7px;width:auto}span.frame span img{display:block;float:left}span.frame span span{clear:both;color:#333;display:block;padding:5px 0 0}span.align-center{display:block;overflow:hidden;clear:both}span.align-center > span{display:block;overflow:hidden;margin:13px auto 0;text-align:center}span.align-center span img{margin:0 auto;text-align:center}span.align-right{display:block;overflow:hidden;clear:both}span.align-right > span{display:block;overflow:hidden;margin:13px 0 0;text-align:right}span.align-right span img{margin:0;text-align:right}span.float-left{display:block;margin-right:13px;overflow:hidden;float:left}span.float-left span{margin:13px 0 0}span.float-right{display:block;margin-left:13px;overflow:hidden;float:right}span.float-right > span{display:block;overflow:hidden;margin:13px auto 0;text-align:right}code,tt{margin:0 2px;padding:0 5px;white-space:nowrap;border:1px solid #eaeaea;background-color:#f8f8f8;border-radius:3px}pre code{margin:0;padding:0;white-space:pre;border:none;background:transparent}.highlight pre{background-color:#f8f8f8;border:1px solid #ccc;font-size:13px;line-height:19px;overflow:auto;padding:6px 10px;border-radius:3px}pre{background-color:#f8f8f8;border:1px solid #ccc;font-size:13px;line-height:19px;overflow:auto;padding:6px 10px;border-radius:3px}pre code,pre tt{background-color:transparent;border:none}.slasher{color:#000000}</style></head>
+<body>
+
+<h1>Типы данных</h1>
+
+<p>В JavaScript данные хранятся либо в примитивных структурах, либо в объектах.</p>
+
+<p><strong>Примитивные типы данных:</strong></p>
+
+<ul>
+<li>логический (<code>Boolean</code>),</li>
+<li>числа (<code>Number</code>),</li>
+<li>большие числа (<code>BigInt</code>),</li>
+<li>строки (<code>String</code>),</li>
+<li>символы (<code>Symbol</code>),</li>
+<li><code>undefined</code>,</li>
+<li><code>null</code>.</li>
+</ul>
+
+<p><strong>Не примитивный тип:</strong></p>
+
+<ul>
+<li>объект (<code>Object</code>).</li>
+</ul>
+
+<p>Про разновидность типов данных у объекта расскажем ниже. Отдельно поговорим про <code>BigInt</code>.</p>
+
+<p>Получить тип аргумента можно с помощью оператора <code>typeof</code>. Его можно запускать как функцию, так и как оператор:</p>
+
+<ul>
+<li><code>typeof arg</code>,</li>
+<li><code>typeof(arg)</code>.</li>
+</ul>
+
+<p>Посмотрим, что он выводит:</p>
+
+<pre><code class="language-javascript">typeof undefined // &quot;undefined&quot;
+typeof 0 // &quot;number&quot;
+typeof 10n // &quot;bigint&quot;
+typeof true // &quot;boolean&quot;
+typeof &quot;foo&quot; // &quot;string&quot;
+typeof Symbol(&quot;id&quot;) // &quot;symbol&quot;
+typeof Math // &quot;object&quot; 
+typeof null // &quot;object&quot;
+typeof alert // &quot;function&quot;
+typeof NaN; // &quot;number&quot;
+</code></pre>
+
+<p>Обратите внимание на последние четыре строки:</p>
+
+<ul>
+<li><code>Math</code> — это встроенный объект, который предоставляет интерфейс для работы с математическими операциями или константами.</li>
+<li><code>typeof null</code> — результат данной операции является <strong><a href="https://web.archive.org/web/20160331031419/http://wiki.ecmascript.org:80/doku.php?id=harmony:typeof_null">официально признанной ошибкой языка</a>,</strong> поскольку это не объект, а отдельный тип данных. Исправить ошибку уже нельзя, поскольку так можно «сломать» интернет. Весь мир и все веб-, мобильные-, TV- и другие платформы опираются на неё и делают много дополнительных проверок.</li>
+<li><code>typeof alert</code> — возвращает функцию, потому что на практике удобно разделять функции и объекты. Но в языке нет отдельного типа «функция». Формально можем сказать, что подобное неверно, но очень удобно в процессе разработки.</li>
+<li><code>typeof NaN</code> — возвращает число, поскольку это специальное значение типа <code>Number</code> для выражения «не чисел». Так как <code>NaN</code> не равен ничему, даже самому себе, для проверки используйте <code>Number.isNaN()</code> из ES6. Будьте осторожны с <code>window.isNaN</code>. Он проверяет «не число» в буквальном смысле, то есть <code>window.isNaN(&quot;foo&quot;)</code> вернёт <code>true</code>.</li>
+</ul>
+
+<p>Рассмотрим явное и неявное преобразование в JavaScript. Для приведения любого типа данных к <code>Boolean</code>, необязательно делать именно <code>Boolean(someVar)</code>, достаточно <code>!!someVar</code>. Это будет неявным приведением к <code>Boolean</code>.</p>
+
+<p>Подобное поведение в разных командах могут как принимать, так и не принимать. Если команда во всём придерживается подхода «Явное лучше неявного», дотошно и даже в таких мелочах, то, вероятно, на ревью вас попросят поменять <code>!!</code> —&gt; <code>Boolean</code>. Но ничего плохого в таком двойном отрицании нет.</p>
+
+<pre><code class="language-javascript">const str = '';
+console.log(!!str); // false
+console.log(Boolean(str)); // false
+</code></pre>
+
+<h2>Числа</h2>
+
+<p>Если разделить число на 0, то вы не получите исключение или ошибку как в других языках программирования. Результатом будет специальное значение типа <code>Number</code> — <code>Infinity</code> или <code>-Infinity</code>.</p>
+
+<blockquote>
+<p>Интересный факт: деление на 0 существует. Для этого можно почитать дискретную алгебру и темы про поля и кольца.</p>
+</blockquote>
+
+<pre><code class="language-javascript">1 / 0 === Infinity; // true
+1 / Infinity === 0; // тоже true
+</code></pre>
+
+<p>Рассмотрим некоторые необычные примеры сравнений и вычислений, а также что будет их  результатом:</p>
+
+<pre><code class="language-jsx">Math.sqrt(-1);         // NaN
+&quot;не число&quot; / 2;        // NaN
+0 / 0;                 // NaN
+NaN === NaN;           // false
+isNaN(Math.sqrt(-1));  // true
+Number.isNaN(Math.sqrt(-1)); // true, не поддерживается в IE
+</code></pre>
+
+<p>В JavaScript вы можете получить максимальный и минимальный 64-битный <code>Number</code>. Данные числа соответствуют стандарту <a href="https://en.wikipedia.org/wiki/IEEE_754#2019">IEEE 754</a>:</p>
+
+<pre><code class="language-javascript">Number.MAX_VALUE; // 1.79e+308
+Number.MIN_VALUE; // 5e-324, самое близкое к нулю
+
+Number.MAX_SAFE_INTEGER;  // 2^53 - 1 или 9007199254740991
+Number.MAX_SAFE_INTEGER + 1 === Number.MAX_SAFE_INTEGER + 2; // true
+
+Number.MIN_SAFE_INTEGER;  // -(2^53 - 1) или -9007199254740991
+Number.MIN_SAFE_INTEGER - 1 === Number.MIN_SAFE_INTEGER - 2; // true
+        
+Number.isSafeInteger(Math.pow(2, 54)); // false
+Number.isSafeInteger(-Math.pow(2, 54)); // false
+// всё это не поддерживается в IE
+</code></pre>
+
+<p>Поскольку не все методы поддерживаются браузерами, лучше перед использованием проверять их на <a href="https://caniuse.com/">Can I Use</a>.</p>
+
+<p>Есть некоторые особенности при вычислении чисел. <a href="https://medium.com/angular-in-depth/javascripts-number-type-8d59199db1b6">В статье на Medium</a> описана математика и почему именно по стандарту IEEE 754 сложение ниже работает именно так.</p>
+
+<pre><code class="language-javascript">0.1 + 0.2 = 0.30000000000000004;
+0.1 + 0.2 === 0.3; // false
+
+Number.EPSILON; // 2^-52, не поддерживается в IE
+</code></pre>
+
+<p>В стандарте ES2019 появился <code>BigInt</code>:</p>
+
+<blockquote>
+<p>BigInt — это встроенный объект, предоставляющий способ представлять целые числа больше {formula}2^{53}-1{/formula} (наибольшего числа, которое JavaScript может надёжно представить с <code>Number</code>) примитивом. Это максимальное значение можно получить, обратившись к <code>Number.MAX_SAFE_INTEGER</code>.</p>
+</blockquote>
+
+<p>Проверка типов у <code>BigInt</code> тоже специфическая:</p>
+
+<pre><code class="language-javascript">typeof 1n === 'bigint'; // true
+typeof BigInt('1') === 'bigint'; // true
+
+// Но:
+typeof Object(1n) === 'object'; // true
+</code></pre>
+
+<p>Легко определять <code>BigInt</code> через конструктор:</p>
+
+<pre><code class="language-javascript">const theBiggestInt = 9007199254740991n;
+
+const alsoHuge = BigInt(9007199254740991);
+// ↪ 9007199254740991n
+
+const hugeString = BigInt(&quot;9007199254740991&quot;);
+// ↪ 9007199254740991n
+
+const hugeHex = BigInt(&quot;0x1fffffffffffff&quot;);
+// ↪ 9007199254740991n
+
+const hugeBin = BigInt(&quot;0b11111111111111111111111111111111111111111111111111111&quot;);
+// ↪ 9007199254740991n
+</code></pre>
+
+<p><code>BigInt</code>, как и полагается интерфейсу для работы с большими числами, — содержит алгоритмы сложения, вычитания, умножения, возведения в степень или определения остатка от деления.</p>
+
+<p>В реальной работе <code>BigInt</code> вам понадобится, только если ваши проекты «крутятся» вокруг таких значений. В противном случае вы будете крайне редко сталкиваться с ним.</p>
+
+<p>Подробнее про операторы и <code>BigInt</code> написано на <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/BigInt">MDN</a>.</p>
+
+<p><a href="https://habr.com/ru/post/207754/">На Хабре есть отличная статья</a> про работу с длинной арифметикой и как на самом деле работают плюс, минус или умножение.</p>
+
+<h2>Строки</h2>
+
+<p>Строка — это то, с чем вы сталкиваетесь каждый день. Программист постоянно имеет дело со строками, преобразованиями и прочими действиями над данной структурой.</p>
+
+<p>Строки можно писать как в одинарных, так и в двойных кавычках, в отличие от многих других языков программирования (например, Golang):</p>
+
+<pre><code class="language-javascript">const escapeCodesString = 'a\'b'; // a'b
+escapeCodesString.length; // 3
+        
+const escapeCodesString = &quot;a\&quot;b&quot;; // a&quot;b
+escapeCodesString.length; // 3
+
+const escapeCodesString = 'a\\b'; // a\b
+escapeCodesString.length; // 3
+
+const escapeCodesString = 'a\n\tb'; // a
+                                    //     b
+escapeCodesString.length; // 4
+</code></pre>
+
+<p>JavaScript поддерживает различные языки, Unicode, а также Emoji:</p>
+
+<pre><code class="language-javascript">// Поддерживаются все символы из Unicode
+const utf8String = '中文 español English বাংলা 日本語 ਪੰਜਾਬੀ';
+utf8String.length; // 35
+</code></pre>
+
+<p>Как соединить строки? Существует классический оператор <code>+</code> для сложения (конкатенации) строк:</p>
+
+<pre><code class="language-javascript">const concatStr = 'hello' + ' world'; // hello world
+
+const name = 'Vasya';
+const helloVasya = 'Hello, ' + name + '!'; // Hello, Vasya!
+</code></pre>
+
+<p>В ES6 появился механизм «шаблонных строк». Он пишется через грависы, то есть кавычки вида <code>`</code>. Данный механизм упрощает составление строк, поскольку читать, как они собираются через оператор <code>+</code>, намного сложнее, нежели единую строку, в которую уже вставлены переменные:</p>
+
+<pre><code class="language-javascript">const name = 'Vasya';
+const concatStr = `Hello, ${name}!`; // Hello, Vasya!
+
+const getFullName = name =&gt; `${name} Pupkin`;
+const concatStr = `Hello, ${getFullName('Vasya') + ' Petrov'}!`; // Hello, Vasya Pupkin Petrov!
+</code></pre>
+
+<p>Однако этот механизм отличается не только удобством. На конференциях и <a href="https://medium.com/front-end-weekly/es6-cool-stuffs-a-new-js-string-with-template-literals-c23a8af11b2">в некоторых статьях</a> авторы показали, что шаблонные строки работают быстрее, чем классическое сложение. Потому советуем отказаться от сложения строк посредством оператора <code>+</code> в пользу шаблонных строк.</p>
+
+<p>Строки — иммутабельный тип данных, то есть они неизменяемы:</p>
+
+<pre><code class="language-javascript">const someStr = 'собака';
+
+// Возможно обращение к символу по индексу
+someStr[1]; // 'о'
+
+// Редактирование невозможно
+someStr[1] = 'и';
+someStr; // 'собака'
+</code></pre>
+
+<p>При работе со строками могут помочь различные методы, которые уже существуют в строке. Но почему строка имеет методы и свойства, если строка — это не тип данных <code>Object</code>?</p>
+
+<p>Всё просто. Разработчики языка добавили такую возможность в этот тип данных, чтобы работа со строками была в удовольствие. Все эмуляции вызова свойств и методов интерпретатор эффективно преобразовывает в нужную логику и машинный код.</p>
+
+<pre><code class="language-jsx">// Обрезаем строку в 135 символов до 30 символов
+const longString = 'Мы с бэкенда получили очень длинный текст, 
+который неудобно вставлять в интерфейс, 
+и хотим обрезать часть строки, заменив конец на &quot;...&quot;'
+
+let shortString = longString;
+
+if (longString.length &gt; 30) {
+  shortString = longString.slice(0, 29) + '…';
+}
+
+shortString; // 'Мы с бэкенда получили очень д…'
+shortString.length; // 30
+
+/////////////////////////////////////////////////
+
+const tweet = 'Мой твит #hash';
+
+// Находим индекс первого вхождения подстроки в строке
+tweet.indexOf('#hash'); // 9
+// Искомая подстрока отсутствует
+tweet.indexOf('#hack'); // -1
+</code></pre>
+
+<p>На строках определены также операции сравнения:</p>
+
+<pre><code class="language-javascript">'a' === 'a'; // true
+
+'a' &lt; 'b';     // true
+'a' &lt; 'ab';    // true
+'bar' &lt; 'foo'; // true
+
+'1' &gt; '12';    // false
+'2' &gt; '12';    // true
+'12' &lt; '5';    // true
+</code></pre>
+
+<p>Довольно часто приходится преобразовывать числа в строки и обратно. Преобразовать число в строку можно, просто передав число в шаблонную строку или вызвав метод <code>toString</code> у числа:</p>
+
+<pre><code class="language-javascript">const numb = 42;
+numb.toString(); // '42'
+`${numb}`; // '42'
+</code></pre>
+
+<p>Примеры преобразований строки в число:</p>
+
+<pre><code class="language-javascript">Number('123');     // 123
+Number('12.8');    // 12.8
+Number('12.8  ');  // 12.8
+Number('  12.8');  // 12.8
+Number('   ');     // 0
+Number('');        // 0
+Number('12.8s')    // NaN
+Number('s12.8')    // NaN
+
+parseFloat('123');     // 123
+parseFloat('12.8');    // 12.8
+parseFloat('12.8  ');  // 12.8
+parseFloat('  12.8');  // 12.8
+parseFloat('   ');     // NaN
+parseFloat('');        // NaN
+parseFloat('12.8s');   // 12.8
+parseFloat('s12.8');   // NaN
+</code></pre>
+
+<p>Есть ещё много полезных методов, например:</p>
+
+<ul>
+<li><code>toLowerCase</code> — приводит строку к нижнему регистру,</li>
+<li><code>toUpperCase</code> — приводит строку к верхнему регистру,</li>
+<li><code>trim</code> –— удаляет пробельные символы с обеих сторон,</li>
+<li><code>startsWith</code> — начинается ли строка с подстроки,</li>
+<li><code>endsWith</code> — заканчивается ли строка подстрокой.</li>
+</ul>
+
+<p>Подробнее о строках — <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/String">в документации на MDN</a>.</p>
+
+<h2>Операторы сравнения</h2>
+
+<p>В JavaScript существует несколько операторов сравнения: <code>==</code> и <code>===</code>:</p>
+
+<pre><code class="language-javascript">// == – обычное сравнение
+'01' == 1; // true
+null == undefined; // true
+
+// === – строгое сравнение
+'1' === 1; // false
+null === undefined; // false
+</code></pre>
+
+<p>В JavaScript <strong>не следует</strong> использовать оператор сравнения <code>==</code>, поскольку он делает неявное преобразование типов. Такое поведение ведёт к большому количеству ошибок и неявному поведению программы.</p>
+
+<p>Оператор строгого равенства <code>===</code> проверяет равенство без приведения типов.</p>
+
+</body>
+</html>

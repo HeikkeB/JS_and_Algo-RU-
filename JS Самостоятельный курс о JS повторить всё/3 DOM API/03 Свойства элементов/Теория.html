@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Свойства элементов</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta charset="utf-8">
+<style>body{font-family:Helvetica,arial,sans-serif;font-size:14px;line-height:1.6;background-color:#fff;padding:30px;color:#333;max-width:1140px;margin:0 auto}body > :first-child{margin-top:0!important}body > :last-child{margin-bottom:0!important}a{color:#4183C4;text-decoration:none}a.absent{color:#c00}a.anchor{display:block;padding-left:30px;margin-left:-30px;cursor:pointer;position:absolute;top:0;left:0;bottom:0}h1,h2,h3,h4,h5,h6{margin:20px 0 10px;padding:0;font-weight:700;-webkit-font-smoothing:antialiased;cursor:text;position:relative}h2:first-child,h1:first-child,h1:first-child + h2,h3:first-child,h4:first-child,h5:first-child,h6:first-child{margin-top:0;padding-top:0}h1:hover a.anchor,h2:hover a.anchor,h3:hover a.anchor,h4:hover a.anchor,h5:hover a.anchor,h6:hover a.anchor{text-decoration:none}h1 tt,h1 code{font-size:inherit}h2 tt,h2 code{font-size:inherit}h3 tt,h3 code{font-size:inherit}h4 tt,h4 code{font-size:inherit}h5 tt,h5 code{font-size:inherit}h6 tt,h6 code{font-size:inherit}h1{font-size:28px;color:#000}h2{font-size:24px;border-bottom:1px solid #ccc;color:#000}h3{font-size:18px}h4{font-size:16px}h5{font-size:14px}h6{color:#777;font-size:14px}p,blockquote,ul,ol,dl,li,table,pre{margin:15px 0}hr {padding:0;margin-bottom:-8px;height:1px;border:none;background:black}body > h2:first-child{margin-top:0;padding-top:0}body > h1:first-child{margin-top:0;padding-top:0}body > h1:first-child + h2{margin-top:0;padding-top:0}body > h3:first-child,body > h4:first-child,body > h5:first-child,body > h6:first-child{margin-top:0;padding-top:0}a:first-child h1,a:first-child h2,a:first-child h3,a:first-child h4,a:first-child h5,a:first-child h6{margin-top:0;padding-top:0}h1 p,h2 p,h3 p,h4 p,h5 p,h6 p{margin-top:0}li p.first{display:inline-block}ul,ol{padding-left:30px}ul :first-child,ol :first-child{margin-top:0}ul :last-child,ol :last-child{margin-bottom:0}dl{padding:0}dl dt{font-size:14px;font-weight:700;font-style:italic;padding:0;margin:15px 0 5px}dl dt:first-child{padding:0}dl dt > :first-child{margin-top:0}dl dt > :last-child{margin-bottom:0}dl dd{margin:0 0 15px;padding:0 15px}dl dd > :first-child{margin-top:0}dl dd > :last-child{margin-bottom:0}blockquote{border-left:4px solid #ddd;padding:0 15px;color:#777}blockquote > :first-child{margin-top:0}blockquote > :last-child{margin-bottom:0}table{padding:0}table tr{border-top:1px solid #ccc;background-color:#fff;margin:0;padding:0}table tr:nth-child(2n){background-color:#f8f8f8}table tr th{font-weight:700;border:1px solid #ccc;text-align:left;margin:0;padding:6px 13px}table tr td{border:1px solid #ccc;text-align:left;margin:0;padding:6px 13px}table tr th :first-child,table tr td :first-child{margin-top:0}table tr th :last-child,table tr td :last-child{margin-bottom:0}img{max-width:100%}span.frame{display:block;overflow:hidden}span.frame > span{border:1px solid #ddd;display:block;float:left;overflow:hidden;margin:13px 0 0;padding:7px;width:auto}span.frame span img{display:block;float:left}span.frame span span{clear:both;color:#333;display:block;padding:5px 0 0}span.align-center{display:block;overflow:hidden;clear:both}span.align-center > span{display:block;overflow:hidden;margin:13px auto 0;text-align:center}span.align-center span img{margin:0 auto;text-align:center}span.align-right{display:block;overflow:hidden;clear:both}span.align-right > span{display:block;overflow:hidden;margin:13px 0 0;text-align:right}span.align-right span img{margin:0;text-align:right}span.float-left{display:block;margin-right:13px;overflow:hidden;float:left}span.float-left span{margin:13px 0 0}span.float-right{display:block;margin-left:13px;overflow:hidden;float:right}span.float-right > span{display:block;overflow:hidden;margin:13px auto 0;text-align:right}code,tt{margin:0 2px;padding:0 5px;white-space:nowrap;border:1px solid #eaeaea;background-color:#f8f8f8;border-radius:3px}pre code{margin:0;padding:0;white-space:pre;border:none;background:transparent}.highlight pre{background-color:#f8f8f8;border:1px solid #ccc;font-size:13px;line-height:19px;overflow:auto;padding:6px 10px;border-radius:3px}pre{background-color:#f8f8f8;border:1px solid #ccc;font-size:13px;line-height:19px;overflow:auto;padding:6px 10px;border-radius:3px}pre code,pre tt{background-color:transparent;border:none}.slasher{color:#000000}</style></head>
+<body>
+
+<h1>Свойства элементов</h1>
+
+<p>У DOM-элементов можно узнать, к какому типу принадлежит узел. Тип узла можно получить с помощью свойства <code>nodeType</code>:</p>
+
+<pre><code class="language-JavaScript">&lt;div id=&quot;container&quot;&gt;&lt;span&gt;Привет всем!&lt;/span&gt;Aloha!&lt;/div&gt;
+
+const container = document.getElementById('container');
+console.log(container.firstChild.nodeType); // 1
+console.log(container.lastChild.nodeType); // 3 
+</code></pre>
+
+<p>Представляется <code>nodeType</code> в виде числа. Всего типов узлов 12, но используются в основном только два:</p>
+
+<ul>
+<li>1 — <code>ELEMENT_NODE</code>,</li>
+<li>3 — <code>TEXT_NODE</code>.</li>
+</ul>
+
+<p>Про остальные можно <a href="https://developer.mozilla.org/ru/docs/Web/API/Node/nodeType">прочитать на MDN</a>.</p>
+
+<p>У примера выше есть подвох. Если внутри <code>div</code> перенести элемент <code>span</code> на новую строчку, то первый <code>console.log</code> вернёт <code>3</code>. Почему? Потому что переносы строк и пробелы будут восприниматься как текст. Будьте внимательны.</p>
+
+<p>У элемента есть ещё два важных свойства — <code>tagName</code>, <code>innerHTML</code>:</p>
+
+<pre><code class="language-JavaScript">&lt;h1&gt;Ссылка: &lt;a href=&quot;/&quot;&gt;тут&lt;/a&gt;&lt;/h1&gt;
+element.tagName // имя тега
+h1.tagName // &quot;H1&quot;
+</code></pre>
+
+<p>Основные особенности других свойств:</p>
+
+<ol>
+<li><p><code>node.tagName</code>:</p>
+
+<ul>
+<li>возвращает HTML-тег в UPPERCASE,</li>
+<li>работает только для элемента.</li>
+</ul></li>
+
+<li><p><code>node.nodeName</code>:</p>
+
+<ul>
+<li>для элемента вернёт <code>tagName</code> в UPPERCASE,</li>
+<li>для типа узла <code>TEXT_NODE</code> — строку <code>#text</code>.</li>
+</ul></li>
+
+<li><p><code>element.innerHTML</code>:</p>
+
+<ul>
+<li>вернёт содержимое в виде строки,</li>
+<li>доступны как геттер, так и сеттер,</li>
+<li>всегда только перезаписывается,</li>
+<li>если в <code>innerHTML</code> добавят тег <code>script</code> — он не выполнится.</li>
+</ul></li>
+
+<li><p><code>element.outerHTML</code>:</p>
+
+<ul>
+<li>содержит HTML-элемент целиком,</li>
+<li>при записи в DOM — исходный элемент заменяется на новый,</li>
+<li>изменить <code>outerHTML</code> элемента невозможно.</li>
+</ul>
+
+<pre><code class="language-JavaScript">let div = document.querySelector('div');
+console.log(div); // &lt;div&gt;Привет&lt;/div&gt;
+
+
+div.innerHTML = 'Hi!'
+console.log(div); // &lt;div&gt;Hi!&lt;/div&gt;
+
+
+div.outerHTML = '&lt;h1&gt;Aloha&lt;/h1&gt;'
+console.log(div) // &lt;div&gt;Hi!&lt;/div&gt;
+</code></pre></li>
+
+<li><p><code>data.nodeValue</code>:</p>
+
+<ul>
+<li>содержимое узла или комментария,</li>
+<li>можно изменить,</li>
+<li>у некоторых типов узлов значение равно <code>null</code> — вопреки ожиданиям.</li>
+</ul>
+
+<pre><code class="language-JavaScript">&lt;!-- Комментарий --&gt;
+&lt;!DOCTYPE html&gt;
+
+
+console.log(document.firstChild.data); // Комментарий
+console.log(document.firstChild.nodeValue); // Комментарий
+
+
+console.log(document.lastChild.data); // undefined
+console.log(document.lastChild.nodeValue); // null
+</code></pre></li>
+
+<li><p><code>textContent</code>:</p>
+
+<ul>
+<li>безопасный способ добавить текст — в большинстве случаев лучше использовать его.</li>
+</ul>
+
+<pre><code class="language-JavaScript">&lt;h1&gt;Ссылка: &lt;a href=&quot;/&quot;&gt;тут&lt;/a&gt;&lt;/h1&gt;
+
+
+element.textContent // Содержит только текст внутри элемента без тегов
+h1.textContent // &quot;Ссылка: &quot;
+</code></pre></li>
+</ol>
+
+<p>Не используйте <code>innerHTML</code> для вставки контента. Этот способ откроет в приложении XSS-уязвимость. Если <code>innerHTML</code> необходим, не забудьте экранировать символы. Подробнее про экранирование можно почитать в «<a href="https://learn.javascript.ru/regexp-escaping">Современном учебнике JavaScript</a>». В следующих спринтах расскажем более детально про безопасность веб-приложений, основные уязвимости и средства защиты. В том числе и как работать с XSS-уязвимостью.</p>
+
+<h2>Атрибуты</h2>
+
+<p><code>element.[get/has/set/remove]Attribute</code></p>
+
+<pre><code class="language-JavaScript">element.hasAttribute(name) // проверяет наличие атрибута
+element.getAttribute(name) // получает значение атрибута
+element.setAttribute(name, value) // устанавливает атрибут
+element.removeAttribute(name) // удаляет атрибут
+ 
+elem.attributes // получить все атрибуты
+</code></pre>
+
+<p>Атрибут <code>hidden</code> может принимать следующие значения:</p>
+
+<ul>
+<li><code>true</code> — элемент не виден на экране,</li>
+<li><code>false</code> — элемент виден на экране.</li>
+</ul>
+
+<p>Для работы с классами используются следующие методы:</p>
+
+<ul>
+<li><code>className</code> — возвращает класс в виде строки,</li>
+<li><code>classList</code> — возвращает объект для работы с классами,</li>
+<li><code>classList.[add/remove]</code> — добавить/удалить класс,</li>
+<li><code>classList.toggle</code> — переключает класс,</li>
+<li><code>classList.contains</code> — проверяет, есть ли класс.</li>
+</ul>
+
+<p>В атрибуты можно добавить дополнительную информацию, которую удобно было бы передавать через DOM. Например, состояния дополнительного элемента или значения, которые можно получить позже. Для этого пользуются дата-атрибутами — <code>data-*</code>:</p>
+
+<pre><code class="language-html">&lt;div data-chat-id=&quot;123&quot; data-some-meta=&quot;meta-info&quot;&gt;&lt;/div&gt;
+</code></pre>
+
+<ul>
+<li>все <code>data-*</code> атрибуты доступны в объекте <code>dataset</code>,</li>
+<li>префикс <code>data-</code> отбрасывается, оставшаяся часть трансформируется в
+camelCase. Так <code>data-user-location</code> доступен в <code>element.dataset.userLocation</code>.</li>
+</ul>
+
+</body>
+</html>

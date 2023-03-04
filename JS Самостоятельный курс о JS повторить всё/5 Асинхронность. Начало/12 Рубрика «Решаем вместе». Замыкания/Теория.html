@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Рубрика «Решаем вместе»: Замыкания</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta charset="utf-8">
+<style>body{font-family:Helvetica,arial,sans-serif;font-size:14px;line-height:1.6;background-color:#fff;padding:30px;color:#333;max-width:1140px;margin:0 auto}body > :first-child{margin-top:0!important}body > :last-child{margin-bottom:0!important}a{color:#4183C4;text-decoration:none}a.absent{color:#c00}a.anchor{display:block;padding-left:30px;margin-left:-30px;cursor:pointer;position:absolute;top:0;left:0;bottom:0}h1,h2,h3,h4,h5,h6{margin:20px 0 10px;padding:0;font-weight:700;-webkit-font-smoothing:antialiased;cursor:text;position:relative}h2:first-child,h1:first-child,h1:first-child + h2,h3:first-child,h4:first-child,h5:first-child,h6:first-child{margin-top:0;padding-top:0}h1:hover a.anchor,h2:hover a.anchor,h3:hover a.anchor,h4:hover a.anchor,h5:hover a.anchor,h6:hover a.anchor{text-decoration:none}h1 tt,h1 code{font-size:inherit}h2 tt,h2 code{font-size:inherit}h3 tt,h3 code{font-size:inherit}h4 tt,h4 code{font-size:inherit}h5 tt,h5 code{font-size:inherit}h6 tt,h6 code{font-size:inherit}h1{font-size:28px;color:#000}h2{font-size:24px;border-bottom:1px solid #ccc;color:#000}h3{font-size:18px}h4{font-size:16px}h5{font-size:14px}h6{color:#777;font-size:14px}p,blockquote,ul,ol,dl,li,table,pre{margin:15px 0}hr {padding:0;margin-bottom:-8px;height:1px;border:none;background:black}body > h2:first-child{margin-top:0;padding-top:0}body > h1:first-child{margin-top:0;padding-top:0}body > h1:first-child + h2{margin-top:0;padding-top:0}body > h3:first-child,body > h4:first-child,body > h5:first-child,body > h6:first-child{margin-top:0;padding-top:0}a:first-child h1,a:first-child h2,a:first-child h3,a:first-child h4,a:first-child h5,a:first-child h6{margin-top:0;padding-top:0}h1 p,h2 p,h3 p,h4 p,h5 p,h6 p{margin-top:0}li p.first{display:inline-block}ul,ol{padding-left:30px}ul :first-child,ol :first-child{margin-top:0}ul :last-child,ol :last-child{margin-bottom:0}dl{padding:0}dl dt{font-size:14px;font-weight:700;font-style:italic;padding:0;margin:15px 0 5px}dl dt:first-child{padding:0}dl dt > :first-child{margin-top:0}dl dt > :last-child{margin-bottom:0}dl dd{margin:0 0 15px;padding:0 15px}dl dd > :first-child{margin-top:0}dl dd > :last-child{margin-bottom:0}blockquote{border-left:4px solid #ddd;padding:0 15px;color:#777}blockquote > :first-child{margin-top:0}blockquote > :last-child{margin-bottom:0}table{padding:0}table tr{border-top:1px solid #ccc;background-color:#fff;margin:0;padding:0}table tr:nth-child(2n){background-color:#f8f8f8}table tr th{font-weight:700;border:1px solid #ccc;text-align:left;margin:0;padding:6px 13px}table tr td{border:1px solid #ccc;text-align:left;margin:0;padding:6px 13px}table tr th :first-child,table tr td :first-child{margin-top:0}table tr th :last-child,table tr td :last-child{margin-bottom:0}img{max-width:100%}span.frame{display:block;overflow:hidden}span.frame > span{border:1px solid #ddd;display:block;float:left;overflow:hidden;margin:13px 0 0;padding:7px;width:auto}span.frame span img{display:block;float:left}span.frame span span{clear:both;color:#333;display:block;padding:5px 0 0}span.align-center{display:block;overflow:hidden;clear:both}span.align-center > span{display:block;overflow:hidden;margin:13px auto 0;text-align:center}span.align-center span img{margin:0 auto;text-align:center}span.align-right{display:block;overflow:hidden;clear:both}span.align-right > span{display:block;overflow:hidden;margin:13px 0 0;text-align:right}span.align-right span img{margin:0;text-align:right}span.float-left{display:block;margin-right:13px;overflow:hidden;float:left}span.float-left span{margin:13px 0 0}span.float-right{display:block;margin-left:13px;overflow:hidden;float:right}span.float-right > span{display:block;overflow:hidden;margin:13px auto 0;text-align:right}code,tt{margin:0 2px;padding:0 5px;white-space:nowrap;border:1px solid #eaeaea;background-color:#f8f8f8;border-radius:3px}pre code{margin:0;padding:0;white-space:pre;border:none;background:transparent}.highlight pre{background-color:#f8f8f8;border:1px solid #ccc;font-size:13px;line-height:19px;overflow:auto;padding:6px 10px;border-radius:3px}pre{background-color:#f8f8f8;border:1px solid #ccc;font-size:13px;line-height:19px;overflow:auto;padding:6px 10px;border-radius:3px}pre code,pre tt{background-color:transparent;border:none}.slasher{color:#000000}</style></head>
+<body>
+
+<h1>Рубрика «Решаем вместе»: Замыкания</h1>
+
+<p>Чтобы приступить к решениям, необходимо разобраться, почему код из <code>badResult</code> не работает.</p>
+
+<pre><code class="language-jsx">const badResult = () =&gt; {
+	for (var i = 0; i &lt; 10; i++) {
+	    setTimeout(function() {
+	        console.log(i);
+	    }, 10);
+	}
+};
+</code></pre>
+
+<p>Переменные, объявленные при помощи <code>var</code>, относятся к лексическому окружению функции.  Поэтому переменная <code>i</code> существует в единственном экземпляре и мутируется (изменяет своё значение) по ходу выполнения цикла.</p>
+
+<p>Когда цикл полностью отработал — начинается выполнение callback функций из <code>setTimeout</code>. В каждой такой функции есть ссылка на переменную <code>i</code>, которая уже имеет значение 10. Именно поэтому мы и получаем значение 10 в каждом вызове <code>console.log</code>.</p>
+
+<h3>Решение через IIFE</h3>
+
+<pre><code class="language-jsx">const iifeSolution = () =&gt; {
+    for (var i = 0; i &lt; 10; i++) {
+        (function (i) {
+            setTimeout(function () {
+                console.log(i);
+            }, 0);
+        })(i)
+    }
+};
+</code></pre>
+
+<p>Какие изменения здесь можно увидеть? Всего одно. Самовызывающаяся анонимная функция вида <code>(function(i) { ... })(i)</code>. В данном примере мы создаём вокруг <code>setTimeout</code> новое лексическое окружение в виде функции и передаём в него значение переменной <code>i</code> в момент выполнения цикла. Таким образом, значение переменной <code>i</code> в области видимости <code>iifeSolution</code> будет изменяться по ходу выполнения цикла, а внутри анонимной функции останется неизменным. Callback функция из <code>setTimeout</code> сохранит в замыкании теперь не мутирующееся значение <code>i</code> из лексического окружения <code>iifeSolution</code>, а значение <code>i</code> из аргумента анонимной функции.</p>
+
+<h3>Решение через let</h3>
+
+<pre><code class="language-jsx">function es6Solution() {
+  for(let i = 0; i &lt; 10; i++) {
+    setTimeout(function() {
+        console.log(i);
+    }, 10);
+   }
+}
+</code></pre>
+
+<p>В данном примере изменений ещё меньше. Мы всего лишь изменили способ объявления переменной с <code>var</code> на <code>let</code>. Переменная <code>let</code> существует в блочной области видимости, а значит, остаётся неизменной в рамках каждой итерации нашего цикла. Теперь для каждой из десяти итераций цикла будет существовать своя переменная <code>i</code> с соответствующим значением в области видимости блока цикла.</p>
+
+<pre><code class="language-jsx">{
+    setTimeout(function() {
+        console.log(i);
+    }, 10);
+}
+</code></pre>
+
+<h3><strong>Решение через bind</strong></h3>
+
+<pre><code class="language-jsx">const bindSolution = function () {
+  for (var i = 0; i &lt; 10; i++) {
+     setTimeout(console.log.bind(console, i), 0);
+   }
+};
+</code></pre>
+
+<p>Метод <code>bind</code> возвращает функцию с привязанным контекстом и аргументами. Для решения задачи нас в первую очередь интересуют именно аргументы.</p>
+
+<pre><code class="language-jsx">function fn(text) {
+    console.log(text);
+}
+const bFn = fn.bind({}, 'Hello');
+bFn(); // 'Hello'
+</code></pre>
+
+<p>Ключевым тут является тот факт, что мы задаём аргументы функции не в момент вызова (как обычно), а в момент «биндинга». Таким образом, мы легко можем указать аргумент в момент каждой итерации цикла с нужным значением.</p>
+
+</body>
+</html>

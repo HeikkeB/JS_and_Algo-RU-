@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Квиз</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta charset="utf-8">
+<style>body{font-family:Helvetica,arial,sans-serif;font-size:14px;line-height:1.6;background-color:#fff;padding:30px;color:#333;max-width:1140px;margin:0 auto}body > :first-child{margin-top:0!important}body > :last-child{margin-bottom:0!important}a{color:#4183C4;text-decoration:none}a.absent{color:#c00}a.anchor{display:block;padding-left:30px;margin-left:-30px;cursor:pointer;position:absolute;top:0;left:0;bottom:0}h1,h2,h3,h4,h5,h6{margin:20px 0 10px;padding:0;font-weight:700;-webkit-font-smoothing:antialiased;cursor:text;position:relative}h2:first-child,h1:first-child,h1:first-child + h2,h3:first-child,h4:first-child,h5:first-child,h6:first-child{margin-top:0;padding-top:0}h1:hover a.anchor,h2:hover a.anchor,h3:hover a.anchor,h4:hover a.anchor,h5:hover a.anchor,h6:hover a.anchor{text-decoration:none}h1 tt,h1 code{font-size:inherit}h2 tt,h2 code{font-size:inherit}h3 tt,h3 code{font-size:inherit}h4 tt,h4 code{font-size:inherit}h5 tt,h5 code{font-size:inherit}h6 tt,h6 code{font-size:inherit}h1{font-size:28px;color:#000}h2{font-size:24px;border-bottom:1px solid #ccc;color:#000}h3{font-size:18px}h4{font-size:16px}h5{font-size:14px}h6{color:#777;font-size:14px}p,blockquote,ul,ol,dl,li,table,pre{margin:15px 0}hr {padding:0;margin-bottom:-8px;height:1px;border:none;background:black}body > h2:first-child{margin-top:0;padding-top:0}body > h1:first-child{margin-top:0;padding-top:0}body > h1:first-child + h2{margin-top:0;padding-top:0}body > h3:first-child,body > h4:first-child,body > h5:first-child,body > h6:first-child{margin-top:0;padding-top:0}a:first-child h1,a:first-child h2,a:first-child h3,a:first-child h4,a:first-child h5,a:first-child h6{margin-top:0;padding-top:0}h1 p,h2 p,h3 p,h4 p,h5 p,h6 p{margin-top:0}li p.first{display:inline-block}ul,ol{padding-left:30px}ul :first-child,ol :first-child{margin-top:0}ul :last-child,ol :last-child{margin-bottom:0}dl{padding:0}dl dt{font-size:14px;font-weight:700;font-style:italic;padding:0;margin:15px 0 5px}dl dt:first-child{padding:0}dl dt > :first-child{margin-top:0}dl dt > :last-child{margin-bottom:0}dl dd{margin:0 0 15px;padding:0 15px}dl dd > :first-child{margin-top:0}dl dd > :last-child{margin-bottom:0}blockquote{border-left:4px solid #ddd;padding:0 15px;color:#777}blockquote > :first-child{margin-top:0}blockquote > :last-child{margin-bottom:0}table{padding:0}table tr{border-top:1px solid #ccc;background-color:#fff;margin:0;padding:0}table tr:nth-child(2n){background-color:#f8f8f8}table tr th{font-weight:700;border:1px solid #ccc;text-align:left;margin:0;padding:6px 13px}table tr td{border:1px solid #ccc;text-align:left;margin:0;padding:6px 13px}table tr th :first-child,table tr td :first-child{margin-top:0}table tr th :last-child,table tr td :last-child{margin-bottom:0}img{max-width:100%}span.frame{display:block;overflow:hidden}span.frame > span{border:1px solid #ddd;display:block;float:left;overflow:hidden;margin:13px 0 0;padding:7px;width:auto}span.frame span img{display:block;float:left}span.frame span span{clear:both;color:#333;display:block;padding:5px 0 0}span.align-center{display:block;overflow:hidden;clear:both}span.align-center > span{display:block;overflow:hidden;margin:13px auto 0;text-align:center}span.align-center span img{margin:0 auto;text-align:center}span.align-right{display:block;overflow:hidden;clear:both}span.align-right > span{display:block;overflow:hidden;margin:13px 0 0;text-align:right}span.align-right span img{margin:0;text-align:right}span.float-left{display:block;margin-right:13px;overflow:hidden;float:left}span.float-left span{margin:13px 0 0}span.float-right{display:block;margin-left:13px;overflow:hidden;float:right}span.float-right > span{display:block;overflow:hidden;margin:13px auto 0;text-align:right}code,tt{margin:0 2px;padding:0 5px;white-space:nowrap;border:1px solid #eaeaea;background-color:#f8f8f8;border-radius:3px}pre code{margin:0;padding:0;white-space:pre;border:none;background:transparent}.highlight pre{background-color:#f8f8f8;border:1px solid #ccc;font-size:13px;line-height:19px;overflow:auto;padding:6px 10px;border-radius:3px}pre{background-color:#f8f8f8;border:1px solid #ccc;font-size:13px;line-height:19px;overflow:auto;padding:6px 10px;border-radius:3px}pre code,pre tt{background-color:transparent;border:none}.slasher{color:#000000}</style></head>
+<body>
+
+<h1>Ответы на задания</h1>
+
+<hr>
+
+<p><strong>1. Что будет выведено в консоль?</strong></p>
+
+<pre><code class="language-jsx">function foo() {
+  let user = admin = 'Иннокентий';
+  return user;
+}
+
+foo();
+console.log(typeof user);
+console.log(typeof admin);
+</code></pre>
+
+<ul>
+<li><p><strong>(-)</strong> <code>string</code>, <code>string</code></p></li>
+
+<li><p><strong>(+)</strong>  <code>undefined</code>, <code>string</code></p>
+
+<ul>
+<li>Мы неявно объявили глобальную переменную. Поскольку интерпретатор JS не нашел её объявление ни в функции <code>foo</code>, ни вне её, она стала свойством <code>window</code>. Попробуйте вывести в консоль <code>window.admin</code> или просто <code>admin</code>, и вы увидите Иннокентия. А вот переменная <code>user</code> явно объявлена в функциональной области видимости, а значит к ней нельзя получить доступ извне функции <code>foo</code>.</li>
+</ul></li>
+
+<li><p><strong>(-)</strong> <code>undefined</code>, <code>undefined</code></p></li>
+</ul>
+
+<hr>
+
+<p><strong>2. Что будет выведено в консоль?</strong></p>
+
+<pre><code class="language-jsx">let user = { name: 'Соня' };
+let newUser;
+
+newUser = user;
+user.name = 'Софья Петровна';
+
+console.log(newUser.name);
+</code></pre>
+
+<ul>
+<li><p><strong>(+)</strong> <code>'Софья Петровна'</code></p>
+
+<ul>
+<li>На самом деле переменные <code>user</code> и <code>newUser</code> хранят ссылки на один и тот же объект, который хранится в памяти. Примитивные типы ведут себя иначе. Они присваиваются и копируются по значению.</li>
+</ul></li>
+</ul>
+
+<pre><code class="language-jsx">let user = 'Соня';
+let newUser;
+
+newUser = user;
+user = 'Софья Петровна';
+
+console.log(newUser); // Соня
+</code></pre>
+
+<ul>
+<li><p><strong>(-)</strong> <code>'Соня'</code></p></li>
+
+<li><p><strong>(-)</strong> <code>undefined</code></p></li>
+</ul>
+
+<hr>
+
+<p><strong>3. Что будет выведено в консоль?</strong></p>
+
+<pre><code class="language-jsx">let a = '42';
+let b = new String(42);
+
+console.log(a == b)
+console.log(a === b)
+</code></pre>
+
+<ul>
+<li><p><strong>(-)</strong> <code>true</code>, <code>true</code></p></li>
+
+<li><p><strong>(+)</strong> <code>true</code>, <code>false</code></p>
+
+<ul>
+<li>Оператор <code>==</code> проверяет равны ли значения, а <code>===</code> — значения и тип. Поскольку <code>new String</code> — функция-конструктор, в переменной <code>b</code> на самом деле хранится объект.</li>
+</ul></li>
+
+<li><p><strong>(-)</strong> <code>false</code>, <code>false</code></p></li>
+</ul>
+
+<hr>
+
+<p><strong>4. Что будет выведено в консоль?</strong></p>
+
+<pre><code class="language-jsx">let number = 0;
+console.log(number++);
+console.log(++number);
+console.log(number);
+</code></pre>
+
+<ul>
+<li><p><strong>(+)</strong> <code>0</code>, <code>2</code>, <code>2</code></p>
+
+<ul>
+<li>А теперь по шагам:</li>
+</ul></li>
+</ul>
+
+<ol>
+<li>Сначала использовали постфиксный инкремент. Он сначала вернул текущее значение, а потом увеличил его на единицу. На этом шаге значение всё ещё <code>0</code>.</li>
+<li>Постфиксный инкремент увеличил значение на единицу, а значит <code>number</code> уже равен <code>1</code>. В игру вступает префиксный инкремент. Он сначала увеличивает значение на единицу, а потом возвращает его. Значит здесь мы сразу получим <code>2</code>.</li>
+<li>А здесь просто выводим значение переменной в консоль.</li>
+</ol>
+
+<ul>
+<li><p><strong>(-)</strong>  <code>1</code>, <code>2</code>, <code>2</code></p></li>
+
+<li><p><strong>(-)</strong>  <code>1</code>, <code>2</code>, <code>3</code></p></li>
+</ul>
+
+<hr>
+
+<p><strong>5. Что будет выведено в консоль?</strong></p>
+
+<pre><code class="language-jsx">function checkAnimal(data) {
+  if (data === { animal: 'Кот' }) {
+    console.log('Это кот');
+  } else if (data == { animal: 'Кот' }) {
+    console.log('Всё ещё кот');
+  } else {
+    console.log('Я таких животных не знаю');
+  }
+}
+
+checkAnimal({ animal: 'Кот' });
+</code></pre>
+
+<ul>
+<li><p><strong>(-)</strong> <code>'Это кот'</code></p></li>
+
+<li><p><strong>(-)</strong> <code>'Всё ещё кот'</code></p></li>
+
+<li><p><strong>(+)</strong> <code>'Я таких животных не знаю'</code></p>
+
+<ul>
+<li>Объекты, в отличии от примитивов, сравниваются по ссылкам. Объект, который мы передали в качестве аргумента, и тот, что внутри функции, хранятся в разных местах в памяти, а значит их ссылки не равны.</li>
+</ul></li>
+</ul>
+
+<hr>
+
+<p><strong>6. Что будет выведено в консоль?</strong></p>
+
+<pre><code class="language-jsx">function getName(...args) {
+  console.log(typeof args);
+}
+
+getName('Иннокентий');
+</code></pre>
+
+<ul>
+<li><p><strong>(+)</strong> <code>'object'</code></p>
+
+<ul>
+<li>Мы использовали rest-параметр, то есть <code>...</code>. Он собирает все переданные аргументы в массив, а массив — это объект.</li>
+</ul></li>
+
+<li><p><strong>(-)</strong> <code>'array'</code></p></li>
+
+<li><p><strong>(-)</strong>  <code>'string'</code></p></li>
+</ul>
+
+<hr>
+
+<p><strong>7. Какие из этих значений ложные (<code>falsy</code>)?</strong></p>
+
+<pre><code class="language-jsx">0;
+new Number(0);
+'';
+' ';
+new Boolean(false);
+undefined;
+</code></pre>
+
+<ul>
+<li><p><strong>(-)</strong> Все</p></li>
+
+<li><p><strong>(-)</strong> <code>0</code>, <code>''</code>, <code>new Boolean(false)</code>, <code>undefined</code></p></li>
+
+<li><p><strong>(+)</strong>  <code>0</code>, <code>''</code>, <code>undefined</code></p>
+
+<ul>
+<li>Строка <code>' '</code> не <code>falsy</code>, поскольку там есть пробел. Функции-конструкторы — это <code>truthy</code> значения.</li>
+</ul></li>
+</ul>
+
+<hr>
+
+<p><strong>8. Что будет выведено в консоль?</strong></p>
+
+<pre><code class="language-jsx">console.log(typeof typeof 0);
+</code></pre>
+
+<ul>
+<li><p><strong>(+)</strong> <code>'string'</code></p>
+
+<ul>
+<li>Сначала <code>typeof 0</code> вернёт <code>'number'</code>, дальше <code>typeof 'number'</code> вернёт <code>'string'</code></li>
+</ul></li>
+
+<li><p><strong>(-)</strong> <code>'number'</code></p></li>
+
+<li><p><strong>(-)</strong> <code>'undefined'</code></p></li>
+</ul>
+
+<hr>
+
+<p><strong>9. Что будет выведено в консоль?</strong></p>
+
+<pre><code class="language-jsx">function addToList(item, list) {
+  return list.push(item);
+}
+
+const result = addToList('стул', ['стол']);
+console.log(result);
+</code></pre>
+
+<ul>
+<li><p><strong>(-)</strong> <code>['стол', 'стул']</code></p></li>
+
+<li><p><strong>(-)</strong>  <code>undefined</code></p></li>
+
+<li><p><strong>(+)</strong> <code>2</code></p>
+
+<ul>
+<li>А всё потому, что метод <code>push</code> возвращает не сам новый массив, а его длину.</li>
+</ul></li>
+</ul>
+
+<hr>
+
+<p><strong>10. Это чистая функция?</strong></p>
+
+<pre><code class="language-jsx">function sum(a, b) {
+  return a + b;
+}
+</code></pre>
+
+<ul>
+<li><p><strong>(+)</strong>  Да</p>
+
+<ul>
+<li>Чистая функция всегда возвращает тот же результат. Если вы вызовете функцию <code>sum</code> c аргументами <code>1</code> и <code>2</code>, а потом вызовете её с теми же аргументами ещё десять раз, у вас будет тот же результат — <code>3</code>.</li>
+</ul></li>
+
+<li><p><strong>(-)</strong> Нет</p></li>
+</ul>
+
+<hr>
+
+<p><strong>11. Какой из перечисленных способов модифицирует объект <code>user</code>?</strong></p>
+
+<pre><code class="language-jsx">const user = {
+  name: 'Иннокентий',
+  role: {
+    admin: true
+  },
+};
+
+Object.freeze(user);
+</code></pre>
+
+<ul>
+<li><p><strong>(-)</strong>  <code>user.name = 'Кеша'</code></p></li>
+
+<li><p><strong>(+)</strong>  <code>user.role.admin = false</code></p>
+
+<ul>
+<li><code>Object.freeze</code> «замораживает» объект только поверхностно, то есть на вложенные объекты «заморозка» не распространяется.</li>
+</ul></li>
+
+<li><p><strong>(-)</strong> <code>user.contacts = { email: 'ya-admin@test.ru' }</code></p></li>
+
+<li><p><strong>(-)</strong>  <code>delete user.name</code></p></li>
+</ul>
+
+<hr>
+
+<p><strong>12. Что будет выведено в консоль?</strong></p>
+
+<pre><code class="language-jsx">const arr = [1, 2, 3];
+const anotherArr = arr;
+
+arr.length = 0;
+console.log(arr, anotherArr);
+</code></pre>
+
+<ul>
+<li><p><strong>(+)</strong>  <code>[], []</code></p>
+
+<ul>
+<li>Указав, что длинна массива равна нулю, мы по сути его опустошили. Поскольку массив — это фактически объект, он копируется по ссылке, поэтому изменения в <code>arr</code> повлияли на <code>anotherArr</code>.</li>
+</ul></li>
+
+<li><p><strong>(-)</strong> <code>[], [1, 2, 3]</code></p></li>
+
+<li><p><strong>(-)</strong>  <code>undefined, [1, 2, 3]</code></p></li>
+</ul>
+
+<hr>
+
+<p><strong>13. Что будет выведено в консоль?</strong></p>
+
+<pre><code class="language-jsx">let obj1 = {
+	value: 1
+};
+let obj2 = obj1;
+
+obj2 = {};
+console.log(obj1);
+</code></pre>
+
+<ul>
+<li><p><strong>(-)</strong> <code>undefined</code></p></li>
+
+<li><p><strong>(-)</strong> <code>{}</code></p></li>
+
+<li><p><strong>(+)</strong> <code>{ value: 1 }</code></p>
+
+<ul>
+<li>Объекты копируются по ссылке, то есть переменные <code>obj1</code> и <code>obj2</code> ссылаются на один и тот же объект, который хранится в памяти. Когда мы присвоили переменной <code>obj2</code> пустой объект, она начала ссылаться уже на него, что не повлияло на <code>obj1</code>.</li>
+</ul></li>
+</ul>
+
+<hr>
+
+<p><strong>14. Что будет выведено в консоль?</strong></p>
+
+<pre><code class="language-jsx">let firstArr = [{ name: 'Соня' }, 2];
+let secondArr = firstArr.slice();
+
+secondArr[0].name = 'Софья Петровна';
+secondArr[1] = 200;
+console.log(firstArr);
+</code></pre>
+
+<ul>
+<li><p><strong>(-)</strong> <code>[{ name: 'Соня' }, 2]</code></p></li>
+
+<li><p><strong>(+)</strong>  <code>[{ name: 'Софья Петровна' }, 2]</code></p>
+
+<ul>
+<li>Метод <code>slice</code> без аргументов создал новый массив c такими же элементами, как в <code>firstArr</code>. Поэтому изменение второго элемента в <code>secondArr</code> не повлияло на <code>firstArr</code> и там всё так же <code>2</code>. Но <code>slice</code> создал только поверхностную копию, так что значение <code>name</code> изменилось в обоих массивах.</li>
+</ul></li>
+
+<li><p><strong>(-)</strong>  <code>[{ name: 'Софья Петровна' }, 200]</code></p></li>
+</ul>
+
+<hr>
+
+<p><strong>15. Что будет выведено в консоль?</strong></p>
+
+<pre><code class="language-jsx">function foo() {
+	bar()
+	return;
+  
+	function bar() {
+		console.log(typeof bar);
+	}
+}
+
+foo();
+</code></pre>
+
+<ul>
+<li><p><strong>(+)</strong> <code>'function'</code></p>
+
+<ul>
+<li>Здесь необходимо вспомнить особенность Function Declaration (объявления функции). Такую функцию можно использовать до её объявления, потому что когда движок JS ещё только готовится выполнить код, он ищет Function Declaration и создаёт их. То есть на этапе подготовки к выполнению <code>foo</code>, движок нашел функцию <code>bar</code> и создал её, поэтому она доступна до <code>return</code>.</li>
+</ul></li>
+
+<li><p><strong>(-)</strong>  <code>undefined</code></p></li>
+
+<li><p><strong>(-)</strong>  <code>ReferenceError</code></p></li>
+</ul>
+
+<hr>
+
+<p><strong>16. Что будет выведено в консоль?</strong></p>
+
+<pre><code class="language-jsx">const objA = new Object({foo: 'foo'});
+const objB = new Object({foo: 'foo'});
+console.log(objA == objB);
+console.log(objA === objB);
+</code></pre>
+
+<ul>
+<li><p><strong>(-)</strong>  <code>true</code>, <code>true</code></p></li>
+
+<li><p><strong>(+)</strong>  <code>false</code>, <code>false</code></p>
+
+<ul>
+<li>Объекты хранятся и копируются по ссылке. В условии объекты выглядят одинаково, но по факту они ссылаются на разные области памяти, а значит не равны. Примитивы в свою очередь сравниваются по значению:</li>
+</ul></li>
+</ul>
+
+<pre><code class="language-jsx">const foo = 'Я строка';
+const bar = 'Я строка';
+console.log(foo == bar);
+console.log(foo === bar);
+</code></pre>
+
+<ul>
+<li><strong>(-)</strong>  <code>true</code>, <code>false</code></li>
+</ul>
+
+<hr>
+
+<p><strong>17. Что будет выведено в консоль?</strong></p>
+
+<pre><code class="language-jsx">const objA = {
+  name: 'Иннокентий'
+};
+const objB = objA;
+objB.name = 'Соня';
+
+delete objA.name;
+console.log(objA.name);
+console.log(objB.name);
+</code></pre>
+
+<ul>
+<li><p><strong>(+)</strong>  <code>undefined</code>, <code>undefined</code></p>
+
+<ul>
+<li>Объекты были скопированы по ссылке, то есть указывают на одну и ту же область памяти. Удалив ключ <code>name</code> в <code>objA</code>, мы удалили его также и для <code>objB</code>.</li>
+</ul></li>
+
+<li><p><strong>(-)</strong>  <code>undefined</code>, <code>'Соня'</code></p></li>
+
+<li><p><strong>(-)</strong> <code>'Иннокентий'</code>, <code>'Иннокентий'</code></p></li>
+</ul>
+
+<hr>
+
+<p><strong>18. Что будет выведено в консоль?</strong></p>
+
+<pre><code class="language-jsx">const arr = [10, 1, 9, 100];
+arr.sort();
+console.log(arr);
+</code></pre>
+
+<ul>
+<li><p><strong>(-)</strong>  <code>[1, 9, 10, 100]</code></p></li>
+
+<li><p><strong>(-)</strong>  <code>[100, 10, 9, 1]</code></p></li>
+
+<li><p><strong>(+)</strong>   <code>[1, 10, 100, 9]</code></p>
+
+<ul>
+<li>Почему результат сортировки выглядит так, будто что-то пошло не так? На самом деле метод отсортировал элементы, но сначала преобразовал их в строки, а потом  расставил в порядке следования кодовых символов Unicode. Если нужно задать определенный порядок сортировки, важно в качестве аргумента передать методу <code>sort</code> колбэк.</li>
+</ul></li>
+</ul>
+
+</body>
+</html>

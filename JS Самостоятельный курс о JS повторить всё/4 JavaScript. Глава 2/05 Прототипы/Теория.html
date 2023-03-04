@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Прототипы</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta charset="utf-8">
+<style>body{font-family:Helvetica,arial,sans-serif;font-size:14px;line-height:1.6;background-color:#fff;padding:30px;color:#333;max-width:1140px;margin:0 auto}body > :first-child{margin-top:0!important}body > :last-child{margin-bottom:0!important}a{color:#4183C4;text-decoration:none}a.absent{color:#c00}a.anchor{display:block;padding-left:30px;margin-left:-30px;cursor:pointer;position:absolute;top:0;left:0;bottom:0}h1,h2,h3,h4,h5,h6{margin:20px 0 10px;padding:0;font-weight:700;-webkit-font-smoothing:antialiased;cursor:text;position:relative}h2:first-child,h1:first-child,h1:first-child + h2,h3:first-child,h4:first-child,h5:first-child,h6:first-child{margin-top:0;padding-top:0}h1:hover a.anchor,h2:hover a.anchor,h3:hover a.anchor,h4:hover a.anchor,h5:hover a.anchor,h6:hover a.anchor{text-decoration:none}h1 tt,h1 code{font-size:inherit}h2 tt,h2 code{font-size:inherit}h3 tt,h3 code{font-size:inherit}h4 tt,h4 code{font-size:inherit}h5 tt,h5 code{font-size:inherit}h6 tt,h6 code{font-size:inherit}h1{font-size:28px;color:#000}h2{font-size:24px;border-bottom:1px solid #ccc;color:#000}h3{font-size:18px}h4{font-size:16px}h5{font-size:14px}h6{color:#777;font-size:14px}p,blockquote,ul,ol,dl,li,table,pre{margin:15px 0}hr {padding:0;margin-bottom:-8px;height:1px;border:none;background:black}body > h2:first-child{margin-top:0;padding-top:0}body > h1:first-child{margin-top:0;padding-top:0}body > h1:first-child + h2{margin-top:0;padding-top:0}body > h3:first-child,body > h4:first-child,body > h5:first-child,body > h6:first-child{margin-top:0;padding-top:0}a:first-child h1,a:first-child h2,a:first-child h3,a:first-child h4,a:first-child h5,a:first-child h6{margin-top:0;padding-top:0}h1 p,h2 p,h3 p,h4 p,h5 p,h6 p{margin-top:0}li p.first{display:inline-block}ul,ol{padding-left:30px}ul :first-child,ol :first-child{margin-top:0}ul :last-child,ol :last-child{margin-bottom:0}dl{padding:0}dl dt{font-size:14px;font-weight:700;font-style:italic;padding:0;margin:15px 0 5px}dl dt:first-child{padding:0}dl dt > :first-child{margin-top:0}dl dt > :last-child{margin-bottom:0}dl dd{margin:0 0 15px;padding:0 15px}dl dd > :first-child{margin-top:0}dl dd > :last-child{margin-bottom:0}blockquote{border-left:4px solid #ddd;padding:0 15px;color:#777}blockquote > :first-child{margin-top:0}blockquote > :last-child{margin-bottom:0}table{padding:0}table tr{border-top:1px solid #ccc;background-color:#fff;margin:0;padding:0}table tr:nth-child(2n){background-color:#f8f8f8}table tr th{font-weight:700;border:1px solid #ccc;text-align:left;margin:0;padding:6px 13px}table tr td{border:1px solid #ccc;text-align:left;margin:0;padding:6px 13px}table tr th :first-child,table tr td :first-child{margin-top:0}table tr th :last-child,table tr td :last-child{margin-bottom:0}img{max-width:100%}span.frame{display:block;overflow:hidden}span.frame > span{border:1px solid #ddd;display:block;float:left;overflow:hidden;margin:13px 0 0;padding:7px;width:auto}span.frame span img{display:block;float:left}span.frame span span{clear:both;color:#333;display:block;padding:5px 0 0}span.align-center{display:block;overflow:hidden;clear:both}span.align-center > span{display:block;overflow:hidden;margin:13px auto 0;text-align:center}span.align-center span img{margin:0 auto;text-align:center}span.align-right{display:block;overflow:hidden;clear:both}span.align-right > span{display:block;overflow:hidden;margin:13px 0 0;text-align:right}span.align-right span img{margin:0;text-align:right}span.float-left{display:block;margin-right:13px;overflow:hidden;float:left}span.float-left span{margin:13px 0 0}span.float-right{display:block;margin-left:13px;overflow:hidden;float:right}span.float-right > span{display:block;overflow:hidden;margin:13px auto 0;text-align:right}code,tt{margin:0 2px;padding:0 5px;white-space:nowrap;border:1px solid #eaeaea;background-color:#f8f8f8;border-radius:3px}pre code{margin:0;padding:0;white-space:pre;border:none;background:transparent}.highlight pre{background-color:#f8f8f8;border:1px solid #ccc;font-size:13px;line-height:19px;overflow:auto;padding:6px 10px;border-radius:3px}pre{background-color:#f8f8f8;border:1px solid #ccc;font-size:13px;line-height:19px;overflow:auto;padding:6px 10px;border-radius:3px}pre code,pre tt{background-color:transparent;border:none}.slasher{color:#000000}</style></head>
+<body>
+
+<h1>Прототипы</h1>
+
+<p>В прошлом уроке рассмотрели, что такое классы с точки зрения стандарта ES6 и как с ними работать. Но как работало наследование и ООП до введения классов? Что такое «прототип»?</p>
+
+<p>Допустим, есть объект, который описывает сообщение, и он содержит определённые поля. Но есть ещё объект, описывающий сообщение как файл, у которого половина свойств и методов идентичны обычному сообщению. Нет смысла поддерживать сразу несколько одинаковых реализаций. Потому хотелось бы сделать объект с базовым функционалом и добавлять туда только те части сущностей, которые отличаются и необходимы.</p>
+
+<pre><code class="language-jsx">const message = {
+	text: '',
+	send(text) { /* ... */ },
+};
+
+const textMessage = {
+	formatter: () =&gt; {},
+};
+
+const fileMessage = {
+	loader: () =&gt; {},
+};
+</code></pre>
+
+<p>Главная задача — научиться связывать эти объекты и пользоваться общим кодом.</p>
+
+<p>Для создания такой связи есть специальное внутреннее поле <code>[[Prototype]]</code>. Объект, на который указывает ссылка в <code>[[Prototype]]</code>, называется <strong>прототипом</strong>.</p>
+
+<p>Если у объекта отсутствует собственный метод — интерпретатор ищет его в прототипе. Поиск будет идти до тех пор, пока интерпретатор не встретит <code>null</code> в поле <code>[[Prototype]]</code>.</p>
+
+<pre><code class="language-jsx">const message = {
+	send(text) { }
+};
+const textMessage = {
+	formatter() {},
+	[[Prototype]]: /* &lt;ссылка на message&gt; */
+};
+
+// Мы хотим вызвать send 
+textMessage.send('text'); // TypeError: textMessage.send is not a function 
+</code></pre>
+
+<p>Чтобы задать такую ссылку, используют метод <code>setPrototypeOf</code>:</p>
+
+<pre><code class="language-jsx">const message = {
+	send(text) { }
+};
+const textMessage = {
+	formatter() {},
+};
+
+Object.setPrototypeOf(textMessage, message);
+textMessage.send('text'); // работает
+</code></pre>
+
+<p>Нельзя задавать цикличные ссылки друг на друга. JavaScript выбросит ошибку <code>TypeError: Cyclic __proto__ value</code>.</p>
+
+<p>Можно сделать ссылку на прототип объекта или <code>null</code>. А вот <code>setPrototypeOf(textMessage, 42)</code> вызовет ошибку.</p>
+
+<h2>Object.prototype</h2>
+
+<p><code>Object.prototype</code> — это прототип для всех объектов по умолчанию. Он содержит общие методы для всех объектов.</p>
+
+<pre><code class="language-jsx">/*
+Object.prototype = {
+	hasOwnProperty() {}
+};
+*/
+
+const message = {
+	send(text) { }
+};
+
+message.hasOwnProperty('send'); // true
+message.hasOwnProperty('unknown'); // false
+</code></pre>
+
+<p>У массивов и функций есть свои прототипы:</p>
+
+<pre><code class="language-jsx">Array.prototype = {
+	concat() {},
+	slice() {},
+	splice() {},
+	forEach() {},
+	filter() {},
+	map() {},
+	[[Prototype]]: &lt;Object.prototype&gt;
+};
+
+Function.prototype = {
+	call() {},
+	apply() {},
+	bind() {},
+	[[Prototype]]: &lt;Object.prototype&gt;
+};
+</code></pre>
+
+<h2>Object.create</h2>
+
+<pre><code class="language-jsx">const message = {
+	send(text) { }
+};
+
+const msg = Object.create(message);
+msg.text = 'Hello';
+
+//////////////////////
+
+const message = {
+	send(text) { }
+};
+
+const msg = Object.create(message, {
+	text: {
+		value: 'Hello'
+	},
+});
+</code></pre>
+
+<p><code>Object.create</code> работает намного быстрее, чем <code>setPrototypeOf</code>. Это можно проверить самому, проведя бенчмарки и замерив время. Или можно довериться стороннему программисту, который сделал это до вас и указал результаты с тестами в <code>gist</code> на GitHub:</p>
+
+<pre><code class="language-txt">Iteration(s):            0
+==================================
+Object.create:           0
+Object.setPrototypeOf:   0
+
+Iteration(s):            1
+==================================
+Object.create:           0
+Object.setPrototypeOf:   0.04
+
+Iteration(s):            2
+==================================
+Object.create:           0
+Object.setPrototypeOf:   0
+
+Iteration(s):            5
+==================================
+Object.create:           0
+Object.setPrototypeOf:   0
+
+Iteration(s):            100
+==================================
+Object.create:           0
+Object.setPrototypeOf:   0
+
+Iteration(s):            1000
+==================================
+Object.create:           0.04
+Object.setPrototypeOf:   0.04
+
+Iteration(s):            10000
+==================================
+Object.create:           0.16
+Object.setPrototypeOf:   0.2
+
+Iteration(s):            100000
+==================================
+Object.create:           1.56
+Object.setPrototypeOf:   1.44
+
+Iteration(s):            1000000
+==================================
+Object.create:           13
+Object.setPrototypeOf:   11.8
+
+Iteration(s):            10000000
+==================================
+Object.create:           89.72
+Object.setPrototypeOf:   71.88
+
+Iteration(s):            25000000
+==================================
+Object.create:           168.4
+Object.setPrototypeOf:   178.8
+
+Iteration(s):            50000000
+==================================
+Object.create:           339.2
+Object.setPrototypeOf:   357.44
+
+Iteration(s):            75000000
+==================================
+Object.create:           503
+Object.setPrototypeOf:   535.72
+
+Iteration(s):            100000000
+==================================
+Object.create:           667.88
+Object.setPrototypeOf:   708.44
+</code></pre>
+
+<pre><code class="language-JavaScript">function A() {
+  var subA = Object.create(A.prototype);
+
+  return subA;
+}
+
+A.prototype.yes = function () { return true; };
+
+function B() {
+  var subB = {};
+
+  Object.setPrototypeOf(subB, B.prototype);
+
+  return subB;
+}
+
+B.prototype.yes = function () { return true; };
+
+var runs = 25;
+var iterations = [0, 1, 2, 5, 10e1, 10e2, 10e3, 10e4, 10e5, 10e6, 25e6, 50e6, 75e6, 10e7];
+var results = {};
+
+iterations.forEach(function (iterate) {
+  var i;
+  var start;
+
+  if (!results[iterate]) {
+    results[iterate] = { a: 0, b: 0 };
+  }
+
+  start = new Date();
+
+  for(i = 0; i &lt; iterate; i++) {
+    var a = new A();
+    if (a.yes() !== true) {
+      throw new Error('incorrect output @ ' + i);
+    }
+  }
+
+  results[iterate].a += new Date() - start;
+
+  start = new Date();
+
+  for(i = 0; i &lt; iterate; i++) {
+    var b = new B();
+    if (b.yes() !== true) {
+      throw new Error('incorrect output @ ' + i);
+    }
+  }
+
+  results[iterate].b += new Date() - start;
+});
+
+iterations.forEach(function (iterate) {
+  var a = results[iterate].a / runs;
+  var b = results[iterate].b / runs;
+
+  console.log('Iteration(s):           ', iterate);
+  console.log('==================================');
+  console.log('Object.create:          ', a);
+  console.log('Object.setPrototypeOf:  ', b);
+  console.log('');
+});
+</code></pre>
+
+<h2>HomeObject</h2>
+
+<p>Во время создания метода, его внутреннее поле <code>[[HomeObject]]</code> заполняется ссылкой на объект, в котором он определён.</p>
+
+<p><code>super</code> всегда ссылается на прототип объекта из поля <code>[[HomeObject]]</code>.</p>
+
+<h2>Геттеры и сеттеры</h2>
+
+<p>Упомянутые ранее «геттеры» и «сеттеры» классов здесь работают аналогично. Именно прототипы задают основу для ООП, манипуляциями с данными и контекстом выполнения.</p>
+
+<h2>Ссылка <code>__proto__</code></h2>
+
+<p><a href="https://learn.javascript.ru/prototype-inheritance">Свойство</a> <code>[[Prototype]]</code> внутреннее и скрытое, но есть много способов задать его. Один из них — использовать <code>__proto__</code>.</p>
+
+<p>Ещё один пример задания ссылки у объектов <code>messages</code>:</p>
+
+<pre><code class="language-jsx">const message = {
+	send(text) { }
+};
+const textMessage = {
+	formatter() {},
+};
+
+textMessage.__proto__ = message;
+
+textMessage.send('text');
+
+////////////
+
+const message = {
+	send(text) { }
+};
+const textMessage = {
+	formatter() {},
+	__proto__: message,
+};
+
+textMessage.send('text'); // Берётся из прототипа
+</code></pre>
+
+<h2>Переопределение метода</h2>
+
+<p>Так же, как и в ООП, в JavaScript можно переопределить метод:</p>
+
+<pre><code class="language-jsx">const message = {
+	send(text) {
+		return `parent: ${text}`;
+	}
+};
+const textMessage = {
+	formatter() {},
+	__proto__: message,
+};
+
+textMessage.send = () =&gt; 'child';
+textMessage.send(); // 'child'
+</code></pre>
+
+<p>Пример с классами:</p>
+
+<pre><code class="language-jsx">class Message {
+	send(text) {  
+		console.log('message');
+	}
+}
+
+class TextMessage extends Message {
+	send(text) {  
+		console.log('text message');
+	}
+}
+
+class FileMessage extends Message {
+	send(text) {  
+		super.send(text);
+		console.log('file message');
+	}
+}
+
+const message = new Message();
+const textMessage = new TextMessage();
+const fileMessage = new FileMessage();
+
+message.send(); // message
+textMessage.send(); // text message
+fileMessage.send(); // message
+					// file message
+</code></pre>
+
+</body>
+</html>
